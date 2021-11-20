@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@1,800&display=swap');
+* {
+  margin:0;
+}
+
+#container {
+  text-align: center;
+  margin: 10px auto;
+  color: black;
+  font-family: 'Exo', sans-serif;
+  overflow: hidden;
+}
+
+#buttons a{
+  display: inline-block;
+  padding: 18px 5%;
+  text-decoration: none;
+  color: inherit;
+  background: white;
+}
+
+#buttons a.active{
+  filter: invert(100%);
+}
+
+#container #info{
+  text-align: center;
+  margin: 0 auto;
+}
+
+#time{
+  font-size: 5em;
+}
