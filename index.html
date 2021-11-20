@@ -40,7 +40,7 @@
 			<div id="left_second">
 				<ul >버스지도
 					<li onclick="hideTime_mapA(), Ashow()"><img src="image/A.png" width="50px" style="background-color: rgb(235, 90, 90); border-radius: 50%;"></li>
-					<li onclick="hideTime_mapB()"><img src="image/B.png" width="50px" style="background-color: cornflowerblue; border-radius: 50%;"></li>
+					<li onclick="hideTime_mapB(), Bshow()"><img src="image/B.png" width="50px" style="background-color: cornflowerblue; border-radius: 50%;"></li>
 				</ul>
 				
 			</div>
@@ -743,7 +743,45 @@
 		});
 
 		var Aswitch = true;
+
+	//B마커 없애기
 	function Ashow() {
+		if(Bswitch==true){
+			marker1_B.setMap(null);
+			marker2_B.setMap(null);
+			marker3_B.setMap(null);
+			marker4_B.setMap(null);
+			marker5_B.setMap(null);
+			marker6_B.setMap(null);
+			marker7_B.setMap(null);
+			marker8_B.setMap(null);
+			marker9_B.setMap(null);
+			marker10_B.setMap(null);
+			marker11_B.setMap(null);
+			marker12_B.setMap(null);
+			marker13_B.setMap(null);
+			Bswitch = !Bswitch;
+		}
+		else{
+			marker1_B.setMap(map);
+			marker2_B.setMap(map);
+			marker3_B.setMap(map);
+			marker4_B.setMap(map);
+			marker5_B.setMap(map);
+			marker6_B.setMap(map);
+			marker7_B.setMap(map);
+			marker8_B.setMap(map);
+			marker9_B.setMap(map);
+			marker10_B.setMap(map);
+			marker11_B.setMap(map);
+			marker12_B.setMap(map);
+			marker13_B.setMap(map);
+			Aswitch = !Aswitch;
+		}
+	}
+
+	//A마커 없애기
+	function Bshow() {
 		if(Aswitch==true){
 			marker1_A.setMap(null);
 			marker2_A.setMap(null);
