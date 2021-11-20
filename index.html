@@ -1,14 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-	<meta charset="utf-8"/>
-	<title>Kakao 지도 시작하기</title>
-	<style>
-		
-	</style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        #left {position: absolute; width: 310px; bottom: 0; top: 0; left:0; background-color: orange;}
+        .right {position:absolute; bottom: 0; top: 0; right:0; left:310px; background-color: orchid;}
+        #left_first {position:relative; left:86px; top:140px; width:150px; height:150px; border-radius: 50%; background-image: url("https://cdn-icons-png.flaticon.com/512/3448/3448339.png"); background-size: 100% 100%;}
+   </style>
 </head>
 <body>
-	<div id="map" style="width:1000px;height:800px;"></div>
+    <div id="wrapper">
+        <div id="left">
+            <div id="left_first">
+                
+            </div>
+
+        </div>
+        <div id="map" class="right">
+
+        </div>
+    </div>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6c747324e8893930edfe21dff937c3c2"></script>
 	<script>
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -632,5 +647,6 @@
 			infowindow13_B.close();
 		});
 	</script>
+    
 </body>
 </html>
