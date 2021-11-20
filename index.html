@@ -39,7 +39,7 @@
             </div>
 			<div id="left_second">
 				<ul >버스지도
-					<li onclick="hideTime_mapA()"><img src="image/A.png" width="50px" style="background-color: rgb(235, 90, 90); border-radius: 50%;"></li>
+					<li onclick="hideTime_mapA(), Ashow()"><img src="image/A.png" width="50px" style="background-color: rgb(235, 90, 90); border-radius: 50%;"></li>
 					<li onclick="hideTime_mapB()"><img src="image/B.png" width="50px" style="background-color: cornflowerblue; border-radius: 50%;"></li>
 				</ul>
 				
@@ -741,6 +741,43 @@
 		kakao.maps.event.addListener(marker13_B, 'mouseout', function() {
 			infowindow13_B.close();
 		});
+
+		var Aswitch = true;
+	function Ashow() {
+		if(Aswitch==true){
+			marker1_A.setMap(null);
+			marker2_A.setMap(null);
+			marker3_A.setMap(null);
+			marker4_A.setMap(null);
+			marker5_A.setMap(null);
+			marker6_A.setMap(null);
+			marker7_A.setMap(null);
+			marker8_A.setMap(null);
+			marker9_A.setMap(null);
+			marker10_A.setMap(null);
+			marker11_A.setMap(null);
+			marker12_A.setMap(null);
+			marker13_A.setMap(null);
+			Aswitch = !Aswitch;
+		}
+		else{
+			marker1_A.setMap(map);
+			marker2_A.setMap(map);
+			marker3_A.setMap(map);
+			marker4_A.setMap(map);
+			marker5_A.setMap(map);
+			marker6_A.setMap(map);
+			marker7_A.setMap(map);
+			marker8_A.setMap(map);
+			marker9_A.setMap(map);
+			marker10_A.setMap(map);
+			marker11_A.setMap(map);
+			marker12_A.setMap(map);
+			marker13_A.setMap(map);
+			Aswitch = !Aswitch;
+		}
+	}
+		
 	</script>
     
 </body>
