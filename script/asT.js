@@ -38,6 +38,3 @@ var Ast = function(){
 //실행함수
 
 var timetable = new Ast();
-document.onready = function(){
-  document.getElementById('info').innerHTML = timetable.next('a');
-}
