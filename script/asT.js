@@ -1,4 +1,4 @@
-var Timetable = function(){
+var Ast = function(){
   var asT = ["02:05", "08:25", "08:45", "09:30", "10:05", "10:25", "10:45","11:20", "12:40", "13:05", "13:25", "13:45", "14:30", "15:05", "15:25", "15:45", "16:30", "17:00", "17:20", "17:40", "18:00", "18:20", "18:40"];
   
   var today = new Date().toUTCString().slice(0, 16);
@@ -37,7 +37,7 @@ var Timetable = function(){
 
 //실행함수
 
-var timetable = new Timetable();
+var timetable = new Ast();
 document.onready = function(){
   document.getElementById('info').innerHTML = timetable.next('a');
 }
