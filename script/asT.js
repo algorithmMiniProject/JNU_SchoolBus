@@ -21,6 +21,7 @@ var Ast = function(){
         d = (times[i].getTime()-now.getTime())/(1000*60);
         if(d >= 60)
           next += Math.floor(d/60)+"</span>hours and "+Math.round(d % 60)+" mins";
+        else if(d<=1) next += "잠시후 도착합니다";
         else
           next += Math.round(d)+"</span> mins";
         break;
