@@ -189,7 +189,7 @@
 		//A노선
 		//정문_A
 		// 마커에 커서가 오버됐을 때 마커 위에 표시할 인포윈도우를 생성합니다
-		var iwContent1_A = '<a id="a" href="javascript:Timetable1();"></a>'+'<div id="text">'+'</div>';
+		var iwContent1_A = '<a id="a" href="javascript:Timetable1();">남은 시간</a>'+'<div id="text">'+'</div>';
 		var infowindow1_A = new kakao.maps.InfoWindow({
 			content : iwContent1_A
 		});
