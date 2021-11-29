@@ -205,7 +205,7 @@
 		});
 
 		//약학대학(구 제2도서관)_A
-		var iwContent2_A = '<div style="padding:5px;">약학대학(구 제2도서관) A노선 버스시간표</div>';
+		var iwContent2_A = '<div style="padding:5px;">약학대학(구 제2도서관) A노선 버스시간표</div>'+'<script src="./fortest.js">'+'</script>';
 		var infowindow2_A = new kakao.maps.InfoWindow({
 			content : iwContent2_A
 		});
