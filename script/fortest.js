@@ -11,3 +11,6 @@ var timetable = new Timetable1();
 document.onready = function(){
   document.querySelector("#text").innerHTML = timetable.next("a");
 }
+setInterval(function() {
+    entranceTimeA();
+},600);
