@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JNU_SchoolBus</title>
+    <style>
+		/*href="bus_time_table.html"*/
+        *{margin: 0; padding: 0; list-style: none;}
+        #left {position: absolute; width: 310px; bottom: 0; top: 0; left:0; background-color: orange;}
+        .right {position:absolute; bottom: 0; top: 0; right:0; left:310px;}
+        
+		#left_first {position:relative; left:86px; top:25%; width:150px; height:150px; border-radius: 50%; background-image: url("https://cdn-icons-png.flaticon.com/512/3448/3448339.png"); background-size: 100% 100%;}
+		
+		#left_second {position: absolute; top: 45%; left: 125px; text-align: center; font-weight: 1000; font-size: 17px;}
+		#left_second > ul {position: relative;}
+		#left_second > ul > li:first-child {position: absolute; right: 43px; top: 50px;}
+		#left_second > ul > li:nth-child(2) {position: absolute; left: 40px; top: 50px;}
+
+		#left_third {position: absolute; top: 60%; left: 113px; text-align: center; font-weight: 1000; font-size: 17px;}
+		#left_third > ul {position: relative;}
+		#left_third > ul > li:first-child {position: absolute; right: 50px; top: 50px;}
+		#left_third > ul > li:nth-child(2) {position: absolute; left: 50px; top: 50px;}
+
+		#timetable > img:first-child {display: none;}
+		#timetable > img:first-child {position:absolute; left: 60px; top: 90px;}
+		#timetable > img:nth-child(2) {display: none;}
+		#timetable > img:nth-child(2) {position:absolute; left: 60px; top: 90px;}
+
+		#box {border: 1px solid black; width: 140px; height:95px; padding-left: 15px; position: relative; top: 20px; left:330px; z-index: 2; border-radius: 15px; background-color:#e1f1e8; font-weight: 900; font-size:14px;}
+   </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="left">
+            <div id="left_first">
+                
+            </div>
+			<div id="left_second">
+				<ul >버스지도
+					<li onclick="hideTime_mapA(), Ashow()"><img src="image/A.png" width="50px" style="background-color: rgb(235, 90, 90); border-radius: 50%;"></li>
+					<li onclick="hideTime_mapB(), Bshow()"><img src="image/B.png" width="50px" style="background-color: cornflowerblue; border-radius: 50%;"></li>
+				</ul>
+				
+			</div>
+
+			<div id="left_third">
+				<ul>버스시간표
+					<li onclick="hideTime_timetableA()"><img src="image/A.png" width="50px" style="background-color: rgb(235, 90, 90); border-radius: 50%;"></li>
+					<li onclick="hideTime_timetableB()"><img src="image/B.png" width="50px" style="background-color: cornflowerblue; border-radius: 50%;"></li>
+				</ul>
+			</div>
+
+        </div>
+        <div id="map" class="right">
+
+		</div>
+
+		<div id="timetable" class="right">
+			<img src="image/bus_A.png">
+			<img src="image/bus_B.png">
+		</div>
+
+		<div id="box">
+			<a style="color:red;"> A</a> : 반시계 방향<img src="image/left.png" style="width:36px; height: 36px; position: relative; top:10px;"><br>
+			<a style="color:blue;">B</a> : 시계 방향<img src="image/right.png" style="width:36px; height: 36px; position: relative; top:11px;">
+		</div>
+    </div>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6c747324e8893930edfe21dff937c3c2"></script>
+	<script>
+		function hideTime_mapA() {
+			document.querySelector("#left_second>ul>li:first-child").style.display = "none"
+			document.querySelector("#left_second>ul>li:nth-child(2)").style.display = "block"
+			document.querySelector("#left_third>ul>li:first-child").style.display = "block"
+			document.querySelector("#left_third>ul>li:nth-child(2)").style.display = "block"
+
+			document.querySelector("#map").style.display = "block"
+			document.querySelector("#timetable>img:first-child").style.display = "none"
+			document.querySelector("#timetable>img:nth-child(2)").style.display = "none"
+			//노선방면표시
+			document.querySelector("#box").style.display = "block"
+		}
+		function hideTime_mapB() {
+			document.querySelector("#left_second>ul>li:first-child").style.display = "block"
+			document.querySelector("#left_second>ul>li:nth-child(2)").style.display = "none"
+			document.querySelector("#left_third>ul>li:first-child").style.display = "block"
+			document.querySelector("#left_third>ul>li:nth-child(2)").style.display = "block"
+			
+			document.querySelector("#map").style.display = "block"
+			document.querySelector("#timetable>img:first-child").style.display = "none"
+			document.querySelector("#timetable>img:nth-child(2)").style.display = "none"
+			//노선방면표시
+			document.querySelector("#box").style.display = "block"
+		}
+		function hideTime_timetableA() {
+			document.querySelector("#left_second>ul>li:first-child").style.display = "block"
+			document.querySelector("#left_second>ul>li:nth-child(2)").style.display = "block"
+			document.querySelector("#left_third>ul>li:first-child").style.display = "none"
+			document.querySelector("#left_third>ul>li:nth-child(2)").style.display = "block"
+			
+			//A시간표 띄우기
+			document.querySelector("#map").style.display = "none"
+			document.querySelector("#timetable>img:first-child").style.display = "block"
+			document.querySelector("#timetable>img:nth-child(2)").style.display = "none"
+			//노선방면표시x
+			document.querySelector("#box").style.display = "none"
+		}
+		function hideTime_timetableB() {
+			document.querySelector("#left_second>ul>li:first-child").style.display = "block"
+			document.querySelector("#left_second>ul>li:nth-child(2)").style.display = "block"
+			document.querySelector("#left_third>ul>li:first-child").style.display = "block"
+			document.querySelector("#left_third>ul>li:nth-child(2)").style.display = "none"
+			
+			//B시간표 띄우기
+			document.querySelector("#map").style.display = "none"
+			document.querySelector("#timetable>img:first-child").style.display = "none"
+			document.querySelector("#timetable>img:nth-child(2)").style.display = "block"
+			//노선방면표시x
+			document.querySelector("#box").style.display = "none"
+		}
+	</script>
+	<script>
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+		mapOption = { 
+			center: new kakao.maps.LatLng(33.45594, 126.56203), // 지도의 중심좌표(본관)
+			level: 4 // 지도의 확대 레벨
+		};  
+
+		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+			// 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
+			var linePath = [
+				new kakao.maps.LatLng(33.459811596777094, 126.5616883626409),// 정문
+				new kakao.maps.LatLng(33.4593320832366, 126.56121748964206),// 정문 입구
+				new kakao.maps.LatLng(33.457574108740026 , 126.56125861391408),//약학대학(동)
+				new kakao.maps.LatLng(33.4574885153456 , 126.56127517942882),//약학대학 코너
+				new kakao.maps.LatLng(33.45750449977659 , 126.56324887523927),//해양대 가기전 코너
+				new kakao.maps.LatLng(33.45567909431768 , 126.56334407550594),//교양강의동 가기전 코너
+				new kakao.maps.LatLng(33.45565326793219, 126.56369108745169),	//교양강의동
+				new kakao.maps.LatLng(33.455622147683954, 126.56381493780444),	//코너
+				new kakao.maps.LatLng(33.45558201146423, 126.56393883319929),	//코너
+				new kakao.maps.LatLng(33.45537102776579, 126.56419265555998),	//코너
+				new kakao.maps.LatLng(33.45532191311008, 126.56432735133325),	//코너
+				new kakao.maps.LatLng(33.455308899480684, 126.56447262247288),	//코너
+				new kakao.maps.LatLng(33.45533983914204 , 126.56622569720398),//해양과학대학4호관(북)
+				new kakao.maps.LatLng(33.45533983914204 , 126.5666505633917),//해양과학대학4호관 직후
+				new kakao.maps.LatLng(33.455291756416464 , 126.5666505633917),//해양과학대학4호관(남)
+				new kakao.maps.LatLng(33.45524081772233 , 126.56434120188857),//공대4호관 가기전 코너
+				new kakao.maps.LatLng(33.45313788974245 , 126.56435709566983),//의전원 가기전 코너
+				new kakao.maps.LatLng(33.45307004641888 , 126.55919199731045),//인문대학(동)
+				new kakao.maps.LatLng(33.451584762275985 , 126.5592210229973),//학생생활관 가기전 코너
+				new kakao.maps.LatLng(33.45158611432318 , 126.55770179594977),//학생생활관 직후 코너
+				new kakao.maps.LatLng(33.4540018326901 , 126.55754163933506),//인문대학(서)
+				new kakao.maps.LatLng(33.45421657291757 , 126.55771264258135),//인문대학(서) 직후 코너
+				new kakao.maps.LatLng(33.454171288541936 , 126.55955481359935),//학생회관 전 커브
+				new kakao.maps.LatLng(33.454693090169386 , 126.56114405258496),//학생회관 직후 커브
+				new kakao.maps.LatLng(33.45618549782216 , 126.56121720519054),//본관 가기전 체육관
+				new kakao.maps.LatLng(33.45621952410338 , 126.56319347002534),//본관 직후 커브
+				new kakao.maps.LatLng(33.45741398134404 , 126.56314714457915),//해양대 1호 직후
+				new kakao.maps.LatLng(33.457386430436266 , 126.56109014810953),//해양대 후 정문 가기전
+				new kakao.maps.LatLng(33.45936308657931 , 126.56106136416757),//본관 가기전 체육관
+
+				new kakao.maps.LatLng(33.45956435218062 , 126.56061126488895),//정문(서) 직후 한바퀴 1
+				new kakao.maps.LatLng(33.45977148768391 , 126.56054568066665),//정문(서) 직후 한바퀴 2
+				new kakao.maps.LatLng(33.46009647714365 , 126.56066236350922),//정문(서) 직후 한바퀴 3
+				new kakao.maps.LatLng(33.46020668609564 , 126.56123190779037),//정문(서) 직후 한바퀴 4
+				new kakao.maps.LatLng(33.460135701018096 , 126.56155496333737),//정문(서) 직후 한바퀴 5
+				new kakao.maps.LatLng(33.459811596777094 , 126.5616883626409),//정문
+
+				/*new kakao.maps.LatLng(33.45533364159899, 126.56638706818944),	//코너
+				new kakao.maps.LatLng(33.455297427727004, 126.56634422442423),	//해대4호관
+				new kakao.maps.LatLng(33.455258783278204, 126.56432228904856),	//코너
+				new kakao.maps.LatLng(33.454478874597775, 126.56431543346217)	//공대4호관*/
+				
+			];
+
+			// 지도에 표시할 선을 생성합니다
+			var polyline = new kakao.maps.Polyline({
+				path: linePath, // 선을 구성하는 좌표배열 입니다
+				strokeWeight: 3, // 선의 두께 입니다
+				strokeColor: '#FFAE00', // 선의 색깔입니다
+				strokeOpacity: 0.3, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+				strokeStyle: 'solid' // 선의 스타일입니다
+			});
+
+
+			// 지도에 선을 표시합니다 
+			polyline.setMap(map); 
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+			//A노선 : 반시계 방향 (정문-> 약학대학(구 제2도서관)-> 해양대1호관 -> 본관-> 학생회관-> 인문대서쪽(학생생활관5호관 앞) -> 학생생활관-> 인문대동쪽-> 중앙도서관-> 의전원-> 공대4호관-> 해양대4호관-> 교양강의동-> 정문)
+			//B노선 : 시계 방향(정문 -> 약학대학(구 제2도서관)-> 해양대1호관-> 교양강의동 -> 해양대4호관-> 공대4호관-> 의전원-> 중앙도서관-> 인문대동쪽-> 학생생활관-> 인문대서쪽(학생생활관5호관 앞)-> 학생회관-> 본관-> 정문)
+
+			// 버스정류장A_마커가 표시될 위치입니다 
+			var markerPosition1_A  = new kakao.maps.LatLng(33.45959698569094, 126.56155229681357);	//정문 버스정류장
+			var markerPosition2_A  = new kakao.maps.LatLng(33.45745626512422, 126.56107903997248);	//약학대학(구 제2도서관) 버스정류장
+			var markerPosition3_A  = new kakao.maps.LatLng(33.457235719455085, 126.5630915682885);	//해양대1호관 버스정류장
+			var markerPosition4_A  = new kakao.maps.LatLng(33.45628077709361, 126.56266611283844);	//본관 버스정류장
+			var markerPosition5_A  = new kakao.maps.LatLng(33.45434178682822, 126.55996267514934);	//학생회관 버스정류장
+			var markerPosition6_A  = new kakao.maps.LatLng(33.45272383703195, 126.55754812966164);	//인문대서쪽(학생생활관5호관 앞) 버스정류장
+			var markerPosition7_A  = new kakao.maps.LatLng(33.451524010180506, 126.55798444396163);	//학생생활관 버스정류장
+			var markerPosition8_A  = new kakao.maps.LatLng(33.452452661749206, 126.55925158811148);	//인문대동쪽 버스정류장
+			var markerPosition9_A  = new kakao.maps.LatLng(33.453049542949664, 126.56103670752735);	//중앙도서관 버스정류장
+			var markerPosition10_A  = new kakao.maps.LatLng(33.45311388505789, 126.56394043104082);	//의전원 버스정류장
+			var markerPosition11_A  = new kakao.maps.LatLng(33.454702319186595, 126.56440036344087);	//공대4호관 버스정류장
+			var markerPosition12_A  = new kakao.maps.LatLng(33.45528399799785, 126.56637118128162);	//해양대4호관 버스정류장			
+			var markerPosition13_A = new kakao.maps.LatLng(33.45570948449097, 126.56365315970915);	//교양동 버스정류장
+
+			// 버스정류장B_마커가 표시될 위치입니다 
+			var markerPosition1_B  = new kakao.maps.LatLng(33.459728010123584, 126.561635000522);	//정문 버스정류장
+			var markerPosition2_B  = new kakao.maps.LatLng(33.45722634214247, 126.56107482036796);	//약학대학(전 제2도서관) 버스정류장
+			var markerPosition3_B  = new kakao.maps.LatLng(33.457084808306355, 126.56312190480722);	//해양대1호관 버스정류장
+			var markerPosition4_B  = new kakao.maps.LatLng(33.45557121664361, 126.56343335352804);	//교양강의동 버스정류장
+			var markerPosition5_B  = new kakao.maps.LatLng(33.45537053232618, 126.56662351685743);	//해양대4호관 버스정류장
+			var markerPosition6_B  = new kakao.maps.LatLng(33.454525895964956, 126.56422646207002);	//공대4호관 버스정류장
+			var markerPosition7_B  = new kakao.maps.LatLng(33.45318930887334, 126.56359586978772);	//의전원 버스정류장
+			var markerPosition8_B  = new kakao.maps.LatLng(33.45318761519736, 126.56120003690766);	//중앙도서관 버스정류장
+			var markerPosition9_B  = new kakao.maps.LatLng(33.452695592480445, 126.5591105353544);	//인문대동쪽 버스정류장
+			var markerPosition10_B  = new kakao.maps.LatLng(33.451637810173615, 126.55829308862937);	//학생생활관 버스정류장
+			var markerPosition11_B  = new kakao.maps.LatLng(33.452598162043245, 126.55770203611944);	//인문대서쪽(학생생활관5호관 앞) 버스정류장
+			var markerPosition12_B  = new kakao.maps.LatLng(33.45439750337384, 126.56041951902566);	//학생회관 버스정류장
+			var markerPosition13_B  = new kakao.maps.LatLng(33.4561113354243, 126.56191672535435);	//본관 버스정류장
+	</script>
+	<script src="script/marker.js"></script>
+	<script src="script/Abus.js"></script>
+	<script src="script/Bbus.js"></script>
+</body>
+</html>
