@@ -7,6 +7,7 @@ var Timetable1 = function(){
     var leftMinutes = (parseInt(remainShuttle[0].substring(0,2))*60 + parseInt(remainShuttle[0].substring(3,5))  - (parseInt(h) *60 + parseInt(m)));
     document.querySelector("#text").innerHTML= parseInt(leftMinutes / 60) + " hours and " + leftMinutes % 60 +" minutes left for next shuttle";
 }
-setInterval(function() {
-    Timetable1();
-},600);
+var timetable = new Timetable1();
+document.onready = function(){
+  document.querySelector("#text").innerHTML = timetable.next("a");
+}
