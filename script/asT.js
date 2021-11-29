@@ -15,14 +15,14 @@ var Ast = function(){
     var times = abus;
     var now = new Date();
     var d; //분구하기
-    var next = '<span id="time">';
+    var next;
     for(var i=0, l=times.length; i<l; i++){
       if(times[i].getTime() >= now.getTime()){
         d = (times[i].getTime()-now.getTime())/(1000*60);
         if(d >= 60)
-          next += Math.floor(d/60)+"</span>hours and "+Math.round(d % 60)+" mins";
+          next += Math.floor(d/60)+"hours and "+Math.round(d % 60)+" mins";
         else
-          next += Math.round(d)+"</span> mins";
+          next += Math.round(d)+" mins";
         break;
       }
     }
