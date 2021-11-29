@@ -189,7 +189,7 @@
 		//A노선
 		//정문_A
 		// 마커에 커서가 오버됐을 때 마커 위에 표시할 인포윈도우를 생성합니다
-		var iwContent1_A = '<div id="text">'+'</div>';
+		var iwContent1_A = '<div id="text">'+'</div>'+'<script src="./fortest.js">'+'</script>';
 		var infowindow1_A = new kakao.maps.InfoWindow({
 			content : iwContent1_A
 		});
@@ -205,7 +205,7 @@
 		});
 
 		//약학대학(구 제2도서관)_A
-		var iwContent2_A = '<div style="padding:5px;">약학대학(구 제2도서관) A노선 버스시간표</div>'+'<script src="./fortest.js">'+'</script>';
+		var iwContent2_A = '<div style="padding:5px;">약학대학(구 제2도서관) A노선 버스시간표</div>';
 		var infowindow2_A = new kakao.maps.InfoWindow({
 			content : iwContent2_A
 		});
