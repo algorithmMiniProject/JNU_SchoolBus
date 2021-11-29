@@ -39,5 +39,5 @@ var Ast = function(){
 
 var timetable = new Ast();
 document.onready = function(){
-  document.querySelector("#info").innerHTML = timetable.next('point');
+  document.querySelector("#info").innerHTML = timetable.next("point");
 }
