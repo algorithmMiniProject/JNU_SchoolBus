@@ -29,7 +29,7 @@ var Ast = function(){
     var fn = arguments.callee;
     var _this = this;
     update = setTimeout(function(){
-      document.getElementById('info').innerHTML = fn.call(_this, place);
+      document.querySelector("#info").innerHTML = fn.call(_this, place);
     },(d+0.5-Math.floor(d+0.5))*60*1000+1000);
     return next;
   }
@@ -39,5 +39,5 @@ var Ast = function(){
 
 var timetable = new Ast();
 document.onready = function(){
-  document.getElementById('info').innerHTML = timetable.next('point');
+  document.querySelector("#info").innerHTML = timetable.next('point');
 }
