@@ -10,7 +10,7 @@ var Timetable1 = function(){
     }
     else{
         leftMinutes = (parseInt(remainShuttle[0].substring(0,2))*60 + parseInt(remainShuttle[0].substring(3,5))  - (parseInt(h) *60 + parseInt(m)));
-        document.querySelector("#mainA").innerHTML= parseInt(leftMinutes / 60) + " 시 " + leftMinutes % 60 +" 분";
+        document.querySelector("#mainA").innerHTML= parseInt(leftMinutes / 60) + " 시 " + leftMinutes % 60 +" 분";}
 }
 //정문
 
