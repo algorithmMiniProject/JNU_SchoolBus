@@ -5,7 +5,7 @@ var Timetable4 = function(){
     var m = d.getMinutes();
     var remainShuttle = admAT.filter(bus => bus.substring(0,2) > h || (bus.substring(0,2) == h && bus.substring(3,5) > m));
     var leftMinutes = (parseInt(remainShuttle[0].substring(0,2))*60 + parseInt(remainShuttle[0].substring(3,5))  - (parseInt(h) *60 + parseInt(m)));
-    document.querySelector("#admA").innerHTML= "adm에서 " + leftMinutes % 60 +"분 후 도착";
+    document.querySelector("#admA").innerHTML= "A 본관 : " + leftMinutes % 60 +"분 후";
     //document.querySelector("#admA").innerHTML= parseInt(leftMinutes / 60) + " hours and " + leftMinutes % 60 +" minutes left for next bus";
 }
 //본관
