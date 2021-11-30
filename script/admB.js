@@ -9,7 +9,7 @@ var Ttable12 = function(){
     var leftMinutes;
     var name = '<span style="font-weight:bold;">본관&nbsp;</span>';
     if(remainShuttle[0]==null){
-        document.querySelector("#admB").innerHTML= name + "운행이 없습니다";
+        document.querySelector("#admB").innerHTML= name + "운행이 종료됐습니다";
     } // 버스운행이 멈춘 경우, filter의 조건을 만족하는 배열의 값이 없어 undefined을 반환한다.
     else{
         leftMinutes = (parseInt(remainShuttle[0].substring(0,2))*60 + parseInt(remainShuttle[0].substring(3,5))  - (parseInt(h) *60 + parseInt(m)));
