@@ -7,7 +7,7 @@ var Ttable12 = function(){
     // filter는 지정된 함수의 결과 값을 true로 만드는 원소들로만 구성된 별도의 배열을 반환한다. 조건을 만족하는 배열의 값이 없을 경우 undefined를 반환한다.
     // substring 함수를 이용해 문자열을 자른다. 기본 구조는 .sbustring(시작인덱스, 종료인덱스)로, 이를 이용해 table의 시간과 분을 구분했다. .substring(0,2)=시간 .substring(3,5)=분
     var leftMinutes;
-    var name = '<span style="font-weight:bold;">본관A&nbsp;</span>';
+    var name = '<span style="font-weight:bold;">본관&nbsp;</span>';
     if(remainShuttle[0]==null){
         document.querySelector("#admB").innerHTML= name + "운행이 없습니다";
     } // 버스운행이 멈춘 경우, filter의 조건을 만족하는 배열의 값이 없어 undefined을 반환한다.
