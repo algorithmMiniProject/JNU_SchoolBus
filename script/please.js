@@ -5,7 +5,7 @@ var Timetable1 = function(){
     var m = d.getMinutes();
     var remainShuttle = mainAT.filter(bus => bus.substring(0,2) > h || (bus.substring(0,2) == h && bus.substring(3,5) > m));
     var leftMinutes;
-    var name = '<span style="font-weight:bold;"">정문</span>';
+    var name = '<span style="font-weight:bold;">정문</span>';
     if(remainShuttle[0]==null){
         document.querySelector("#mainA").innerHTML= name + "운행이 없습니다";
     }
